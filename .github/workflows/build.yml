@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # Installs packages, clones git repos and then builds UEFI
-      - name: Run a multi-line script
+      - name: Build UEFI
         run: |
           sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
           cd actions
