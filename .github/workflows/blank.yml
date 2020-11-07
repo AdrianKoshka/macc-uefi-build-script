@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a set of commands using the runners shell
+      # Installs packages, clones git repos and then builds UEFI
       - name: Run a multi-line script
         run: |
           sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
@@ -30,3 +30,10 @@ jobs:
           bash clone.sh
           bash build.sh
           bash tfa.sh
+      
+      # Grab UEFI firmware image
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: UEFI-firmware-image
+          path: actions/e2b/trusted-firmware-a/build/a80x0_mcbin/release/fip.bin
