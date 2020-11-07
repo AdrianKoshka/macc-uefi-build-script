@@ -14,4 +14,4 @@ make -C trusted-firmware-a \
         BL33=$PWD/Build/Armada80x0McBin-AARCH64/RELEASE_GCC5/FV/ARMADA_EFI.fd \
         all fip
 
-cp trusted-firmware-a/build/a80x0_mcbin/release/fip.bin uefi-mcbin-spi.bin
+ls -l trusted-firmware-a/build/a80x0_mcbin/release/fip.bin
