@@ -32,7 +32,7 @@ jobs:
           bash tfa.sh
       
       # Grab UEFI firmware image
-      - name: Archive code coverage results
+      - name: Archive firmware
         uses: actions/upload-artifact@v2
         with:
           name: UEFI-firmware-image
