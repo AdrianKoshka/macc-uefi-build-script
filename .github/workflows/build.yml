@@ -31,11 +31,6 @@ jobs:
           bash build.sh
           bash tfa.sh
       
-      # Checks for the wrong UEFI magic number
-      - name: Check magic number
-        run: |
-          bash check_magic.sh
-      
       # Grab UEFI firmware image
       - name: Archive firmware
         uses: actions/upload-artifact@v2
