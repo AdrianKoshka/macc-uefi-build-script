@@ -3,7 +3,7 @@ BDIR=e2b
 
 cd ${BDIR}
 export PYTHON_COMMAND=/usr/bin/python3.8
-export export WORKSPACE=$PWD
+export WORKSPACE=$PWD
 export PACKAGES_PATH=$PWD/edk2:$PWD/edk2-platforms:$PWD/edk2-non-osi
 
 make -C trusted-firmware-a \
