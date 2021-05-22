@@ -2,7 +2,6 @@
 BDIR=e2b
 
 cd ${BDIR}
-export PYTHON_COMMAND=/usr/bin/python3.8
 export export WORKSPACE=$PWD
 export PACKAGES_PATH=$PWD/edk2:$PWD/edk2-platforms:$PWD/edk2-non-osi
 export CROSS_COMPILE=aarch64-linux-gnu-
@@ -12,6 +11,6 @@ make -C trusted-firmware-a \
         MV_DDR_PATH=$PWD/mv-ddr-marvell \
         SCP_BL2=$PWD/binaries/mrvl_scp_bl2.img \
         BL33=$PWD/Build/Armada80x0McBin-AARCH64/RELEASE_GCC5/FV/ARMADA_EFI.fd \
-        all fip
+        all fip mrvl_flash
 
-ls -l trusted-firmware-a/build/a80x0_mcbin/release/fip.bin
+ls -l trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
