@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: UEFI-firmware-image
-          path: actions/e2b/trusted-firmware-a/build/a80x0_mcbin/release/fip.bin
+          path: actions/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
