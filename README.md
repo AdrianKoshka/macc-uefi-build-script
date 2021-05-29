@@ -51,3 +51,7 @@ $ buildah bud -f cross-compile.Dockerfile -t mubs-cc:latest .
 $ cd actions
 $ podman run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 ```
+
+## Burning to microSD card
+
+`dd if=flash-image.bin of=/dev/sdX bs=512 seek=1 conv=fsync`
