@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM --platform=linux/amd64 docker.io/python:3.9
 
 RUN apt-get update && \
     apt-get upgrade -y && \
