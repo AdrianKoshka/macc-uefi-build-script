@@ -17,12 +17,30 @@ jobs:
     steps:
       -
         name: Docker meta
-        id: meta
+        id: meta-mubs
         uses: docker/metadata-action@v3
         with:
           # list of Docker images to use as base name for tags
           images: |
+            adriankoshka/mubs
             ghcr.io/adriankoshka/mubs
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
+      -
+        name: Docker meta
+        id: meta-mubs-cc
+        uses: docker/metadata-action@v3
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            adriankoshka/mubs-cc
             ghcr.io/adriankoshka/mubs-cc
           # generate Docker tags based on the following events/attributes
           tags: |
@@ -53,7 +71,8 @@ jobs:
         with:
           push: false
           platforms: linux/arm64
-          tags: ghcr.io/adriankoshka/mubs:latest
+          tags: ${{ steps.meta-mubs.outputs.tags }}
+          labels: ${{ steps.meta-mubs.outputs.labels }}
       -
         name: Build mubs-cc
         id: docker_cross_build
@@ -61,4 +80,5 @@ jobs:
         with:
           push: false
           file: 'cross-compile.Dockerfile'
-          tags: ghcr.io/adriankoshka/mubs-cc:latest
+          tags: ${{ steps.meta-mubs-cc.outputs.tags }}
+          labels: ${{ steps.meta-mubs-cc.outputs.labels }}
