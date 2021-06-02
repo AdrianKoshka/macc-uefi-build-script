@@ -27,7 +27,6 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule,
-            type=latest
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
@@ -46,7 +45,6 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
-            type=latest
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
