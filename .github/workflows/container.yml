@@ -34,17 +34,7 @@ jobs:
         with:
           push: false
           platforms: linux/arm64
-          images: |
-            docker.io/adrianlucrececeleste/mubs
-            ghcr.io/adriankoshka/mubs
-          tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
+          tags: ghcr.io/adriankoshka/mubs:latest
       -
         name: Build mubs-cc
         id: docker_cross_build
@@ -52,9 +42,17 @@ jobs:
         with:
           push: false
           file: 'cross-compile.Dockerfile'
+          tags: ghcr.io/adriankoshka/mubs-cc:latest
+      -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          # list of Docker images to use as base name for tags
           images: |
-            docker.io/adrianlucrececeleste/mubs-cc
+            ghcr.io/adriankoshka/mubs
             ghcr.io/adriankoshka/mubs-cc
+          # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
             type=ref,event=branch
