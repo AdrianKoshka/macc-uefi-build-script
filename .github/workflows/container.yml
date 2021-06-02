@@ -31,9 +31,9 @@ jobs:
           tags: adrianlucrececeleste/mubs:latest
       -
         name: Build mubs-cc
-        id: docker_build
+        id: docker_cross_build
         uses: docker/build-push-action@v2
         with:
           push: false
-          file: {context}/cross-compile.Dockerfile
+          file: '{context}/cross-compile.Dockerfile'
           tags: adrianlucrececeleste/mubs-cc:latest
