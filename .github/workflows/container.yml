@@ -34,7 +34,9 @@ jobs:
         with:
           push: false
           platforms: linux/arm64
-          images: ghcr.io/adriankoshka/mubs
+          images: |
+            docker.io/adrianlucrececeleste/mubs
+            ghcr.io/adriankoshka/mubs
           tags: |
             type=schedule
             type=ref,event=branch
@@ -50,7 +52,9 @@ jobs:
         with:
           push: false
           file: 'cross-compile.Dockerfile'
-          images: ghcr.io/adriankoshka/mubs-cc
+          images: |
+            docker.io/adrianlucrececeleste/mubs-cc
+            ghcr.io/adriankoshka/mubs-cc
           tags: |
             type=schedule
             type=ref,event=branch
