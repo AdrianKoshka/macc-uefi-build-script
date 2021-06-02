@@ -35,6 +35,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: false
-          platforms: linux/amd64
           file: {context}/cross-compile.Dockerfile
           tags: adrianlucrececeleste/mubs-cc:latest
