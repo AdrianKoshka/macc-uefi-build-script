@@ -34,7 +34,15 @@ jobs:
         with:
           push: false
           platforms: linux/arm64
-          tags: adrianlucrececeleste/mubs:latest
+          images: ghcr.io/adriankoshka/mubs
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
       -
         name: Build mubs-cc
         id: docker_cross_build
@@ -42,4 +50,12 @@ jobs:
         with:
           push: false
           file: 'cross-compile.Dockerfile'
-          tags: adrianlucrececeleste/mubs-cc:latest
+          images: ghcr.io/adriankoshka/mubs-cc
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
