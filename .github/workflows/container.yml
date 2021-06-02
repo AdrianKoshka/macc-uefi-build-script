@@ -86,7 +86,7 @@ jobs:
         id: docker_cross_build
         uses: docker/build-push-action@v2
         with:
-          push: false
+          push: true
           file: 'cross-compile.Dockerfile'
           tags: ${{ steps.meta-mubs-cc.outputs.tags }}
           labels: ${{ steps.meta-mubs-cc.outputs.labels }}
