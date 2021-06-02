@@ -35,5 +35,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: false
-          file: '{context}/cross-compile.Dockerfile'
+          file: 'cross-compile.Dockerfile'
           tags: adrianlucrececeleste/mubs-cc:latest
