@@ -25,6 +25,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
+            quay.io/adrianlucrececeleste/mubs
             docker.io/adrianlucrececeleste/mubs
             ghcr.io/adriankoshka/mubs
           # generate Docker tags based on the following events/attributes
@@ -43,6 +44,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
+            quay.io/adrianlucrececeleste/mubs-cc
             docker.io/adrianlucrececeleste/mubs-cc
             ghcr.io/adriankoshka/mubs-cc
           # generate Docker tags based on the following events/attributes
@@ -68,6 +70,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_TOKEN }}
+      -
+        name: Login to Quay.io
+        uses: docker/login-action@v1
+        if: github.event_name != 'pull_request'
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_ROBOT_TOKEN }}
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
