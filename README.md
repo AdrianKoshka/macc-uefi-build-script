@@ -3,6 +3,7 @@
 ## CI Status
 
 [![Build UEFI](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build.yml/badge.svg)](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build.yml) <br>
+[![Build UEFI With PCIe Patch](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build-with-pcie-patch.yml/badge.svg?branch=pci-patch)](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build-with-pcie-patch.yml) <br>
 [![Build Containers](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/container.yml/badge.svg)](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/container.yml)
 
 ## How to use
