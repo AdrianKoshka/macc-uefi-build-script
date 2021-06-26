@@ -28,6 +28,7 @@ jobs:
       # Installs packages, clones git repos and then builds UEFI
       - name: Build UEFI
         run: |
+          sudo apt update
           sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
           cd actions
           bash clone.sh
