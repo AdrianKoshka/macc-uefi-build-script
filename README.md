@@ -35,7 +35,7 @@ For those on an `x86_64` host, the steps are mostly the same, though you'll want
 
 ```shell
 $ sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
-$ cd actions
+$ cd actions/master
 $ bash clone.sh
 $ bash build.sh
 $ bash tfa.sh
@@ -45,7 +45,7 @@ $ bash tfa.sh
 
 ```shell
 $ docker build -f cross-compile.Dockerfile -t mubs-cc:latest .
-$ cd actions
+$ cd actions/master
 $ docker run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 ```
 
@@ -53,7 +53,7 @@ $ docker run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 
 ```shell
 $ buildah bud -f cross-compile.Dockerfile -t mubs-cc:latest .
-$ cd actions
+$ cd actions/master
 $ podman run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 ```
 
