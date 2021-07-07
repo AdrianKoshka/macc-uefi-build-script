@@ -7,8 +7,6 @@ name: Build Containers
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   release:
     types:
       - created
@@ -66,7 +64,6 @@ jobs:
         uses: docker/setup-buildx-action@v1
       -
         name: Login to GHCR
-        if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
@@ -75,14 +72,12 @@ jobs:
       -
         name: Login to Quay.io
         uses: docker/login-action@v1
-        if: github.event_name != 'pull_request'
         with:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_ROBOT_TOKEN }}
       -
         name: Login to DockerHub
-        if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
