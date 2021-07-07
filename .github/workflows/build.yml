@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build UEFI From EDK2 Master
+name: Build UEFI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -15,8 +15,34 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  
+  build-edk-latest-tag:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Installs packages, clones git repos and then builds UEFI
+      - name: Build UEFI
+        run: |
+          sudo apt update
+          sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
+          cd actions/latest-tag
+          bash clone.sh
+          bash build.sh
+          bash tfa.sh
+      
+      # Grab UEFI firmware image
+      - name: Archive firmware
+        uses: actions/upload-artifact@v2
+        with:
+          name: UEFI-firmware-image-tagged
+          path: actions/latest-tag/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
+
+  build-from-master:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -39,5 +65,5 @@ jobs:
       - name: Archive firmware
         uses: actions/upload-artifact@v2
         with:
-          name: UEFI-firmware-image
+          name: UEFI-firmware-image-master
           path: actions/master/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
