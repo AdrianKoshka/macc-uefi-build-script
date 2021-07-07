@@ -3,6 +3,7 @@
 ## CI Status
 
 [![Build UEFI](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build.yml/badge.svg)](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build.yml) <br>
+[![Build UEFI From Latest EDK2 Tag](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build-latest-tag.yml/badge.svg)](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/build-latest-tag.yml) <br>
 [![Build Containers](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/container.yml/badge.svg)](https://github.com/AdrianKoshka/macc-uefi-build-script/actions/workflows/container.yml)
 
 ## How to use
