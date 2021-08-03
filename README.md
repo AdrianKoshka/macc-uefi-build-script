@@ -18,7 +18,7 @@ optional arguments:
   -e, --ecam-patch      Include the PCIe ECAM Base address patch
   -t, --clone-from-latest-tag
                         Clone from the latest EDK2 tag
-  -n, --nuke            Nuke the directory which containes the git and build directories
+  -n, --nuke            Nuke the directory which contains the git and build directories
 ```
 
 ### Commandline
