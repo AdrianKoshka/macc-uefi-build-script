@@ -4,9 +4,9 @@ import subprocess
 
 parser = argparse.ArgumentParser(description='Kick off the UEFI clone and build process')
 parser.add_argument("-e", "--ecam-patch", action='store_true', dest="ecam_patch",
-                    help="Include the PCIe ECAM Bbase address patch")
+                    help="Include the PCIe ECAM Base address patch")
 parser.add_argument("-t", "--clone-from-latest-tag", action='store_true', dest="clone_from_latest_tag",
-                    help="Nuke the directory which containes the git and build directories")
+                    help="Clone from the latest EDK2 tag")
 parser.add_argument("-n", "--nuke", action='store_true', dest="nuke_everything",
                     help="Nuke the directory which containes the git and build directories")
 
@@ -21,7 +21,7 @@ def clone_repos():
         subprocess.call("./clone.sh")
     
     if args.ecam_patch:
-        print("Applying the PCIe ECAM base address pat======ch")
+        print("=========================================\nApplying the PCIe ECAM base address patch\n=========================================")
         subprocess.call("./ECAM-patch.sh")
     else:
         pass

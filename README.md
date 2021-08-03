@@ -8,16 +8,16 @@
 ## How to use
 
 ```shell
-$  python3 ./kickoff.py -h
+$ python3 ./kickoff.py -h                     
 usage: kickoff.py [-h] [-e] [-t] [-n]
 
 Kick off the UEFI clone and build process
 
 optional arguments:
   -h, --help            show this help message and exit
-  -e, --ecam-patch      Include the PCIe ECAM Bbase address patch
+  -e, --ecam-patch      Include the PCIe ECAM Base address patch
   -t, --clone-from-latest-tag
-                        Nuke the directory which containes the git and build directories
+                        Clone from the latest EDK2 tag
   -n, --nuke            Nuke the directory which containes the git and build directories
 ```
 
