@@ -15,7 +15,7 @@ Kick off the UEFI clone and build process
 
 optional arguments:
   -h, --help            show this help message and exit
-  -e, --ecam-patch      Include the PCIe ECAM Base address patch
+  -e, --ecam-patch      Include the PCI ECAM base address patch
   -t, --clone-from-latest-tag
                         Clone from the latest EDK2 tag
   -n, --nuke            Nuke the directory which contains the git and build directories

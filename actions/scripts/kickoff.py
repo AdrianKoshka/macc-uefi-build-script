@@ -4,7 +4,7 @@ import subprocess
 
 parser = argparse.ArgumentParser(description='Kick off the UEFI clone and build process')
 parser.add_argument("-e", "--ecam-patch", action='store_true', dest="ecam_patch",
-                    help="Include the PCIe ECAM Base address patch")
+                    help="Include the PCI ECAM base address patch")
 parser.add_argument("-t", "--clone-from-latest-tag", action='store_true', dest="clone_from_latest_tag",
                     help="Clone from the latest EDK2 tag")
 parser.add_argument("-n", "--nuke", action='store_true', dest="nuke_everything",
