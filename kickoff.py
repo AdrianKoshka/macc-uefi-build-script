@@ -15,7 +15,7 @@ args = parser.parse_args()
 def clone_repos():
     if args.clone_from_latest_tag:
         print("============================\nCloning EDK2 from latest tag\n============================")
-        #subprocess.call("./clone-tag.sh")
+        subprocess.call("./clone-tag.sh")
     else:
         print("========================\nCloning EDK2 from master\n========================")
         subprocess.call("./clone.sh")
