@@ -7,12 +7,24 @@
 
 ## How to use
 
+```shell
+$  python3 ./kickoff.py -h
+usage: kickoff.py [-h] [-e] [-t] [-n]
+
+Kick off the UEFI clone and build process
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -e, --ecam-patch      Include the PCIe ECAM Bbase address patch
+  -t, --clone-from-latest-tag
+                        Nuke the directory which containes the git and build directories
+  -n, --nuke            Nuke the directory which containes the git and build directories
+```
+
 ### Commandline
 
 ```shell
-$ bash clone.sh
-$ bash build.sh
-$ bash tfa.sh
+$ python kickoff.py
 ```
 
 ### Docker
@@ -35,17 +47,15 @@ For those on an `x86_64` host, the steps are mostly the same, though you'll want
 
 ```shell
 $ sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
-$ cd actions/master
-$ bash clone.sh
-$ bash build.sh
-$ bash tfa.sh
+$ cd actions/scripts
+$ python kickoff.py
 ```
 
 ### Docker cross compile
 
 ```shell
 $ docker build -f cross-compile.Dockerfile -t mubs-cc:latest .
-$ cd actions/master
+$ cd actions/scripts
 $ docker run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 ```
 
@@ -53,7 +63,7 @@ $ docker run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 
 ```shell
 $ buildah bud -f cross-compile.Dockerfile -t mubs-cc:latest .
-$ cd actions/master
+$ cd actions/scripts
 $ podman run --rm -it -v `pwd`:/opt:z mubs-cc:latest
 ```
 

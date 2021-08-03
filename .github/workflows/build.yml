@@ -30,10 +30,8 @@ jobs:
         run: |
           sudo apt update
           sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
-          cd actions/latest-tag
-          bash clone.sh
-          bash build.sh
-          bash tfa.sh
+          cd actions/scripts
+          python kickoff.py -t
       
       # Grab UEFI firmware image
       - name: Archive firmware
@@ -56,10 +54,8 @@ jobs:
         run: |
           sudo apt update
           sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
-          cd actions/master
-          bash clone.sh
-          bash build.sh
-          bash tfa.sh
+          cd actions/scripts
+          python kickoff.py
       
       # Grab UEFI firmware image
       - name: Archive firmware
