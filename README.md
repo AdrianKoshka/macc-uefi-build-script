@@ -7,7 +7,7 @@
 
 ## How to use
 
-```shell
+```
 $ python3 ./kickoff.py -h                     
 usage: kickoff.py [-h] [-e] [-t] [-n]
 
