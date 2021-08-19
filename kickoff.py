@@ -39,13 +39,14 @@ def tfa_build():
 def main():
     if args.nuke_everything:
         subprocess.call("./nuke.sh")
-    elif args.just_build:
-        edk2_build()
-        tfa_build()
+    else:
+        pass
+    if args.just_build:
+        pass
     else:
         clone_repos()
-        edk2_build()
-        tfa_build()
+    edk2_build()
+    tfa_build()
 
 if __name__ == "__main__":
     main()
