@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: UEFI-firmware-image-tagged
-          path: actions/latest-tag/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
+          path: actions/scripts/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
 
   build-from-master:
     # The type of runner that the job will run on
@@ -62,4 +62,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: UEFI-firmware-image-master
-          path: actions/master/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
+          path: actions/scripts/e2b/trusted-firmware-a/build/a80x0_mcbin/release/flash-image.bin
