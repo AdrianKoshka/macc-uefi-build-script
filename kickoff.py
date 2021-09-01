@@ -9,6 +9,8 @@ parser.add_argument("-t", "--clone-from-latest-tag", action='store_true', dest="
                     help="Clone from the latest EDK2 tag")
 parser.add_argument("-n", "--nuke", action='store_true', dest="nuke_everything",
                     help="Nuke the directory which containes the git and build directories")
+parser.add_argument("-jb", "--just-build", action='store_true', dest='just_build',
+                    help="Just build EDK2, don't clone repos")
 
 args = parser.parse_args()
 
@@ -39,7 +41,10 @@ def main():
         subprocess.call("./nuke.sh")
     else:
         pass
-    clone_repos()
+    if args.just_build:
+        pass
+    else:
+        clone_repos()
     edk2_build()
     tfa_build()
 

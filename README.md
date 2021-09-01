@@ -8,8 +8,8 @@
 ## How to use
 
 ```
-$ python3 ./kickoff.py -h                     
-usage: kickoff.py [-h] [-e] [-t] [-n]
+$ python3 ./kickoff.py -h   
+usage: kickoff.py [-h] [-e] [-t] [-n] [-jb]
 
 Kick off the UEFI clone and build process
 
@@ -18,7 +18,9 @@ optional arguments:
   -e, --ecam-patch      Include the PCI ECAM base address patch
   -t, --clone-from-latest-tag
                         Clone from the latest EDK2 tag
-  -n, --nuke            Nuke the directory which contains the git and build directories
+  -n, --nuke            Nuke the directory which containes the git and build
+                        directories
+  -jb, --just-build     Just build EDK2, don't clone repos
 ```
 
 ### Commandline

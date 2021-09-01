@@ -5,4 +5,4 @@ RUN apt-get update && \
     apt-get install -y build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev git
 
 WORKDIR /opt
-ENTRYPOINT ["bash", "/opt/entrypoint.sh"]
+ENTRYPOINT ["python", "/opt/kickoff.py"]
