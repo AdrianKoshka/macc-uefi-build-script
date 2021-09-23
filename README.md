@@ -45,7 +45,9 @@ $ podman run --rm -it -v `pwd`:/opt:z mubs:latest
 
 ### Cross Compiling
 
-For those on an `x86_64` host, the steps are mostly the same, though you'll want to make sure you install the aarch64 compiler for cross-compilng. The example below assumes you're using Ubuntu.
+For those on an `x86_64` host, the steps are mostly the same, though you'll want
+to make sure you install the aarch64 compiler for cross-compilng. The example
+below assumes you're using Ubuntu.
 
 ```shell
 $ sudo apt install build-essential acpica-tools device-tree-compiler uuid-dev libssl-dev gcc-aarch64-linux-gnu --install-recommends -y
