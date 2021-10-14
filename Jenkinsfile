@@ -5,7 +5,7 @@ node("bn1") {
                 // clean before build
                 cleanWs()
                 // clone the repo
-                git branch: 'main', url: 'https://github.com/AdrianKoshka/macc-uefi-build-script'
+                git branch: 'main', credentialsId: 'github-clone-key', url: 'git@github.com:AdrianKoshka/macc-uefi-build-script.git'
             }
             parallel 'UEFI': {
                 stage("Build UEFI") {
@@ -31,7 +31,7 @@ node("bn1") {
                 // clean before build
                 cleanWs()
                 // clone the repo
-                git branch: 'main', url: 'https://github.com/AdrianKoshka/macc-uefi-build-script'
+                git branch: 'main', credentialsId: 'github-clone-key', url: 'git@github.com:AdrianKoshka/macc-uefi-build-script.git'
             }
             parallel 'Cross-compile UEFI': {
                 stage("Build UEFI") {
