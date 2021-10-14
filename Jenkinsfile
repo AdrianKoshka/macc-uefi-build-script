@@ -21,5 +21,12 @@ node("bn1") {
             sh '''buildah bud -t mubs:latest .
                 buildah rmi mubs:latest '''
         }
+    }, 'Docker x86_64 Container': {
+        node("bn2") {
+            stage("Build with Docker") {
+                git branch: 'main', url: 'https://github.com/AdrianKoshka/macc-uefi-build-script'
+                docker.build("mubs-cc:latest", "-f cross-compile.Dockerfile .")
+            }
+        }
     }
 }
