@@ -16,24 +16,24 @@ args = parser.parse_args()
 
 def clone_repos():
     if args.clone_from_latest_tag:
-        print("============================\nCloning EDK2 from latest tag\n============================")
+        print("=Cloning EDK2 from latest tag=")
         subprocess.call("./clone-tag.sh")
     else:
-        print("========================\nCloning EDK2 from master\n========================")
+        print("=Cloning EDK2 from master=")
         subprocess.call("./clone.sh")
     
     if args.ecam_patch:
-        print("=========================================\nApplying the PCIe ECAM base address patch\n=========================================")
+        print("=Applying the PCIe ECAM base address patch=")
         subprocess.call("./ECAM-patch.sh")
     else:
         pass
 
 def edk2_build():
-    print("=============\nBuilding EDK2\n=============")
+    print("=Building EDK2=")
     subprocess.call("./build.sh")
 
 def tfa_build():
-    print("============\nBuilding TFA\n============")
+    print("=Building TFA=")
     subprocess.call("./tfa.sh")
 
 def main():
