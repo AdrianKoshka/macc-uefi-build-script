@@ -12,4 +12,4 @@ cp ../../tfa.patch tfa.patch
 git apply tfa.patch
 cd ..
 git clone https://github.com/MarvellEmbeddedProcessors/binaries-marvell.git -b binaries-marvell-armada-SDK10.0.1.0 binaries
-git clone https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell.git -b mv-ddr-devel
+git clone https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell.git -b master
