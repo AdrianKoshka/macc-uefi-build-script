@@ -1,4 +1,4 @@
-def clone {
+def clone() {
     cleanWs()
         if (env.BRANCH_NAME ==~ /PR.*/) {
             branch = "${env.CHANGE_BRANCH}"
