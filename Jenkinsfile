@@ -11,6 +11,10 @@ node("rpi4") {
         git branch: branch, credentialsId: 'git', url: 'git@github.com:AdrianKoshka/macc-uefi-build-script.git'
     }
     stage("Build") {
-        sh 'python3 kickoff.py'
+        parallel 'Stock': {
+            sh 'python3 kickoff.py'
+        }, 'with ECAM patch': {
+            sh 'python3 kickoff.py -e'
+        }
     }
 }
