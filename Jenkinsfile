@@ -1,6 +1,5 @@
-node("rpi4") {
-    stage("Clone") {
-        cleanWs()
+def clone {
+    cleanWs()
         if (env.BRANCH_NAME ==~ /PR.*/) {
             branch = "${env.CHANGE_BRANCH}"
         }
@@ -9,12 +8,20 @@ node("rpi4") {
             branch = "${env.BRANCH_NAME}"
         }
         git branch: branch, credentialsId: 'git', url: 'git@github.com:AdrianKoshka/macc-uefi-build-script.git'
-    }
+}
+
+node("rpi4") {
     stage("Build") {
         parallel 'Stock': {
-            sh 'python3 kickoff.py'
+            ws('stock') {
+                clone()
+                sh 'python3 kickoff.py'
+            }
         }, 'with ECAM patch': {
-            sh 'python3 kickoff.py -e'
+            ws('ECAM') {
+                clone()
+                sh 'python3 kickoff.py -e'
+            }
         }
     }
 }
