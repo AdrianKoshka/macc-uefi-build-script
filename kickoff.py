@@ -14,7 +14,7 @@ parser.add_argument("-jb", "--just-build", action='store_true', dest='just_build
 
 args = parser.parse_args()
 
-def clone_repos():
+def clone_repos() -> None:
     if args.clone_from_latest_tag:
         print("=Cloning EDK2 from latest tag=")
         subprocess.call("./clone-tag.sh")
@@ -28,17 +28,17 @@ def clone_repos():
     else:
         pass
 
-def edk2_build():
+def edk2_build() -> None:
     print("=Building EDK2=")
-    subprocess.call("./build.sh")
+    buildProcess = subprocess.run("./build.sh", shell=True, check=True)
 
-def tfa_build():
+def tfa_build() -> None:
     print("=Building TFA=")
-    subprocess.call("./tfa.sh")
+    subprocess.run("./tfa.sh", shell=True, check=True)
 
-def main():
+def main() -> None:
     if args.nuke_everything:
-        subprocess.call("./nuke.sh")
+        subprocess.run("./nuke.sh", shell=True, check=True)
     else:
         pass
     if args.just_build:
