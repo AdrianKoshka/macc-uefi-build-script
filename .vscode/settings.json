@@ -1,5 +1,8 @@
 {
 "files.watcherExclude": {
     "**/e2b/**": true,
-  }
+  },
+  "python.linting.mypyEnabled": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.terminal.activateEnvInCurrentTerminal": true
 }
