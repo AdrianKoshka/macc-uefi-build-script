@@ -4,8 +4,6 @@ BDIR=e2b
 cd ${BDIR}
 export WORKSPACE=$PWD
 export PACKAGES_PATH=$PWD/edk2:$PWD/edk2-platforms:$PWD/edk2-non-osi
-export ARCH=arm64
-export CROSS_COMPILE=aarch64-linux-gnu-
 
 make -C trusted-firmware-a \
         PLAT=a80x0_mcbin \

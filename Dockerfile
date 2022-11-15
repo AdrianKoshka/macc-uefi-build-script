@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 docker.io/python:3.10
+FROM --platform=linux/arm64 docker.io/python:3.11
 
 RUN apt-get update && \
     apt-get upgrade -y && \

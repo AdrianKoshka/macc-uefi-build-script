@@ -4,7 +4,6 @@ BDIR=e2b
 cd ${BDIR}
 export WORKSPACE=$PWD
 export PACKAGES_PATH=$PWD/edk2:$PWD/edk2-platforms:$PWD/edk2-non-osi
-export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-
 make -C edk2/BaseTools
 source edk2/edksetup.sh
 build \

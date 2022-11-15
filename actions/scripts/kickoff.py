@@ -9,37 +9,42 @@ parser.add_argument("-t", "--clone-from-latest-tag", action='store_true', dest="
                     help="Clone from the latest EDK2 tag")
 parser.add_argument("-n", "--nuke", action='store_true', dest="nuke_everything",
                     help="Nuke the directory which containes the git and build directories")
+parser.add_argument("-jb", "--just-build", action='store_true', dest='just_build',
+                    help="Just build EDK2, don't clone repos")
 
 args = parser.parse_args()
 
-def clone_repos():
+def clone_repos() -> None:
     if args.clone_from_latest_tag:
-        print("============================\nCloning EDK2 from latest tag\n============================")
+        print("=Cloning EDK2 from latest tag=")
         subprocess.call("./clone-tag.sh")
     else:
-        print("========================\nCloning EDK2 from master\n========================")
+        print("=Cloning EDK2 from master=")
         subprocess.call("./clone.sh")
     
     if args.ecam_patch:
-        print("=========================================\nApplying the PCIe ECAM base address patch\n=========================================")
+        print("=Applying the PCIe ECAM base address patch=")
         subprocess.call("./ECAM-patch.sh")
     else:
         pass
 
-def edk2_build():
-    print("=============\nBuilding EDK2\n=============")
-    subprocess.call("./build.sh")
+def edk2_build() -> None:
+    print("=Building EDK2=")
+    buildProcess = subprocess.run("./build.sh", shell=True, check=True)
 
-def tfa_build():
-    print("============\nBuilding TFA\n============")
-    subprocess.call("./tfa.sh")
+def tfa_build() -> None:
+    print("=Building TFA=")
+    subprocess.run("./tfa.sh", shell=True, check=True)
 
-def main():
+def main() -> None:
     if args.nuke_everything:
-        subprocess.call("./nuke.sh")
+        subprocess.run("./nuke.sh", shell=True, check=True)
     else:
         pass
-    clone_repos()
+    if args.just_build:
+        pass
+    else:
+        clone_repos()
     edk2_build()
     tfa_build()
 
