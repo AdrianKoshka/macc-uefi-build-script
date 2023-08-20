@@ -1,6 +1,6 @@
 # Macchiatobin UEFI Build Scripts
 
-**If you're still using this, see [this blogpost](https://blog.adrianlucrececeleste.page/posts/marvell-drr-code-and-gcc/)
+**If you're still using this, see [this blogpost](https://blog.adrianlucrececeleste.page/posts/marvell-drr-code-and-gcc/)**
 
 ## How to use
 
