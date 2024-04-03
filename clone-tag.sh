@@ -3,7 +3,7 @@ BDIR=e2b
 mkdir $BDIR
 cd $BDIR
 
-git clone --depth=1 --recurse-submodules https://github.com/tianocore/edk2.git -b edk2-stable202311
+git clone --depth=1 --recurse-submodules https://github.com/tianocore/edk2.git -b edk2-stable202402
 git clone --depth=1 https://github.com/tianocore/edk2-non-osi.git -b master
 git clone --depth=1 https://github.com/tianocore/edk2-platforms.git -b master
 git clone --depth=1 https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git -b master
